@@ -12,12 +12,12 @@ export default defineGkdApp({
         {
           matches:
             '@Button <3 View < View < View < WebView < WebView < ViewGroup < [id="android:id/content"]',
-          matchDelay: 5000,
+          matchTime: 5000,
         },
         {
           matches:
             '@Button <2 View < View < View < View < WebView < WebView < ViewGroup < [id="android:id/content"]',
-          matchDelay: 5000,
+          matchTime: 5000,
         },
       ],
     },
@@ -28,7 +28,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: '@Button[text^="線路1"]',
-          matchDelay: 5000,
+          matchTime: 5000,
         },
       ],
     },

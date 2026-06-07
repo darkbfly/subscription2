@@ -18,7 +18,7 @@ Prefer stable accessibility attributes (`id`, `vid`, `text`, `desc`, `clickable`
    - `text*="跳过"` for contains.
    - `text$="关闭"` for stable suffix.
 4. Add ancestry/sibling context only to disambiguate duplicates.
-5. For delayed WebView content, use rule props like `matchDelay`, not brittle extra ancestry.
+5. For a limited matching window, use `matchTime`; for WebView content that changes without accessibility events, consider `forcedTime`.
 6. Run `pnpm run check` after editing subscription rules.
 
 ## Selector Syntax Quick Reference
@@ -77,7 +77,7 @@ Changing line status, same line number:
 ```ts
 {
   matches: '@Button[text^="線路1"]',
-  matchDelay: 5000,
+  matchTime: 5000,
 }
 ```
 
@@ -99,7 +99,7 @@ Limit a generic close button to content root:
 - Encoding position as behavior: do not keep `<5` or `<7` just because it worked in one snapshot.
 - Forgetting `@`: without `@`, the final selector node is clicked.
 - Overusing regex: prefer `=`, `^=`, `*=`, `$=` for readability and runtime consistency.
-- Hiding trigger issues in selectors: if a WebView node appears late, add `matchDelay` to the rule object.
+- Confusing timing fields: use `matchTime` for "match only within this time window"; `matchDelay` waits before matching.
 
 ## References
 
