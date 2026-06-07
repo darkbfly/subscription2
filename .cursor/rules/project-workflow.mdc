@@ -1,0 +1,12 @@
+---
+description: Project workflow checks before completion and commits
+alwaysApply: true
+---
+
+# Project Workflow
+
+- After editing code or docs, automatically verify formatting and validity before reporting completion.
+- For TypeScript, JavaScript, JSON, and Markdown changes, run `pnpm run format` when formatting may be affected, then run `pnpm run check` for subscription validation.
+- Before creating a git commit, run `pnpm run build` so generated subscription output and version files are updated before staging.
+- If any command changes files, review the resulting diff and include those generated changes in the same commit when they are part of the requested work.
+- Do not claim the work is complete until the relevant verification command has passed, or clearly state which verification could not be run.

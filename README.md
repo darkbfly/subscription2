@@ -103,6 +103,12 @@ export default defineGkdSubscription({
 https://raw.githubusercontent.com/username/subscription/main/dist/gkd.json5
 ```
 
+我的订阅地址:
+
+```txt
+https://raw.githubusercontent.com/darkbfly/subscription2/main/dist/gkd.json5
+```
+
 ## 镜像加速
 
 raw.githubusercontent.com 在大陆的访问常常无法访问
