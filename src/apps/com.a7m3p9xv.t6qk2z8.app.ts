@@ -9,8 +9,27 @@ export default defineGkdApp({
       name: '开屏广告',
       activityIds: ['com.JMComic3.app.MainActivity'],
       rules: [
-        '@Button <3 View < View < View < WebView < WebView < ViewGroup < [id="android:id/content"]',
-        '@Button <2 View < View < View < View < WebView < WebView < ViewGroup < [id="android:id/content"]',
+        {
+          matches:
+            '@Button <3 View < View < View < WebView < WebView < ViewGroup < [id="android:id/content"]',
+          matchDelay: 5000,
+        },
+        {
+          matches:
+            '@Button <2 View < View < View < View < WebView < WebView < ViewGroup < [id="android:id/content"]',
+          matchDelay: 5000,
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '自动选择线路1',
+      activityIds: ['com.JMComic3.app.MainActivity'],
+      rules: [
+        {
+          matches: '@Button[text^="線路1"]',
+          matchDelay: 5000,
+        },
       ],
     },
   ],

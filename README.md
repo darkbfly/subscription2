@@ -1,5 +1,19 @@
 # subscription-template
 
+## 我的订阅地址
+
+GitHub raw:
+
+```txt
+https://raw.githubusercontent.com/darkbfly/subscription2/main/dist/gkd.json5
+```
+
+jsDelivr 镜像:
+
+```txt
+https://fastly.jsdelivr.net/gh/darkbfly/subscription2@main/dist/gkd.json5
+```
+
 GKD 订阅模板, 此仓库方便您直接构建自己订阅, 点击右上角 [Use this template](https://github.com/new?template_name=subscription-template&template_owner=gkd-kit) 即可使用
 
 ## 配置环境
@@ -101,12 +115,6 @@ export default defineGkdSubscription({
 
 ```txt
 https://raw.githubusercontent.com/username/subscription/main/dist/gkd.json5
-```
-
-我的订阅地址:
-
-```txt
-https://raw.githubusercontent.com/darkbfly/subscription2/main/dist/gkd.json5
 ```
 
 ## 镜像加速
