@@ -12,12 +12,12 @@ export default defineGkdApp({
         {
           matches:
             '@Button <3 View < View < View < WebView < WebView < ViewGroup < [id="android:id/content"]',
-          matchTime: 5000,
+          matchTime: 15000,
         },
         {
           matches:
             '@Button <2 View < View < View < View < WebView < WebView < ViewGroup < [id="android:id/content"]',
-          matchTime: 5000,
+          matchTime: 15000,
         },
       ],
     },
