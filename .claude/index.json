@@ -1,0 +1,161 @@
+{
+  "timestamp": "2026-06-11T10:52:42+08:00",
+  "projectSummary": "",
+  "rootDocument": {
+    "path": "CLAUDE.md",
+    "status": "created",
+    "sections": [
+      "项目愿景",
+      "架构总览",
+      "模块结构图",
+      "模块索引",
+      "运行与开发",
+      "测试策略",
+      "编码规范",
+      "AI 使用指引",
+      "变更记录"
+    ]
+  },
+  "modules": [
+    {
+      "path": "src",
+      "document": "src/CLAUDE.md",
+      "status": "created",
+      "responsibility": "订阅源码核心，聚合订阅元信息、分类、全局规则与应用规则。",
+      "language": "TypeScript",
+      "entrypoints": ["src/subscription.ts"],
+      "interfaces": [
+        "default export from defineGkdSubscription",
+        "categories from src/categories.ts",
+        "globalGroups from src/globalGroups.ts",
+        "apps loaded by batchImportApps"
+      ],
+      "tests": ["pnpm run check", "tsc --noEmit", "scripts/check.ts"],
+      "importantPaths": [
+        "src/subscription.ts",
+        "src/categories.ts",
+        "src/globalGroups.ts",
+        "src/apps"
+      ],
+      "gaps": [
+        "categories and globalGroups are currently empty",
+        "no standalone unit tests"
+      ]
+    },
+    {
+      "path": "src/apps",
+      "document": "src/apps/CLAUDE.md",
+      "status": "created",
+      "responsibility": "按 Android 包名拆分维护应用级 GKD 规则。",
+      "language": "TypeScript",
+      "entrypoints": ["src/apps/*.ts"],
+      "interfaces": ["default export from defineGkdApp"],
+      "tests": ["pnpm run check", "pnpm run lint"],
+      "importantPaths": [
+        "src/apps/com.a7m3p9xv.t6qk2z8.app.ts",
+        "src/apps/com.tencent.mm.ts",
+        "src/apps/com.tencent.mobileqq.ts",
+        "src/apps/li.songe.gkd.ts"
+      ],
+      "gaps": [
+        "most app definitions currently have empty groups",
+        "JMComic3 WebView close-button selectors rely on fixed hierarchy and may need snapshot-backed validation"
+      ]
+    },
+    {
+      "path": "scripts",
+      "document": "scripts/CLAUDE.md",
+      "status": "created",
+      "responsibility": "执行订阅校验与 dist 产物构建。",
+      "language": "TypeScript",
+      "entrypoints": ["scripts/check.ts", "scripts/build.ts"],
+      "interfaces": ["checkApiVersion", "checkSubscription", "updateDist"],
+      "tests": ["pnpm run check", "pnpm run build"],
+      "importantPaths": [
+        "scripts/check.ts",
+        "scripts/build.ts",
+        "package.json",
+        "tsconfig.json"
+      ],
+      "gaps": ["no script-specific unit tests"]
+    }
+  ],
+  "supportingAreas": [
+    {
+      "path": ".github/workflows",
+      "role": "CI, PR validation, auto format/lint fix, build and release"
+    },
+    {
+      "path": ".cursor",
+      "role": "Cursor project workflow rules and GKD selector skill"
+    },
+    {
+      "path": "dist",
+      "role": "generated subscription artifacts, skipped for source context"
+    }
+  ],
+  "coverage": {
+    "estimatedTotalFiles": 28,
+    "scannedFiles": 22,
+    "coveragePercent": 78.6,
+    "coveredModules": 3,
+    "recognizedModules": 3,
+    "moduleCoveragePercent": 100,
+    "truncated": false,
+    "notes": [
+      "Repository is small enough for a complete high-signal scan of source, scripts, configs, and workflows.",
+      "Generated dist artifacts and lockfiles were not deeply read because they are generated or low-signal for architecture context."
+    ]
+  },
+  "ignoreRules": {
+    "sources": [".gitignore", "default init-architect rules"],
+    "patterns": [
+      "logs",
+      "*.log",
+      "node_modules",
+      "package-lock.json",
+      "yarn.lock",
+      ".git/**",
+      ".github/**",
+      "dist/**",
+      "build/**",
+      ".next/**",
+      "__pycache__/**",
+      "*.lock",
+      "*.bin",
+      "*.pdf",
+      "*.png",
+      "*.jpg",
+      "*.jpeg",
+      "*.gif",
+      "*.mp4",
+      "*.zip",
+      "*.tar",
+      "*.gz"
+    ],
+    "skippedTopPaths": [
+      {
+        "path": "dist",
+        "reason": "generated subscription artifacts"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "reason": "lockfile"
+      },
+      {
+        "path": ".git",
+        "reason": "VCS metadata"
+      },
+      {
+        "path": "node_modules",
+        "reason": "dependency directory, ignored if present"
+      }
+    ]
+  },
+  "recommendedNextInspections": [
+    "src/apps/com.a7m3p9xv.t6qk2z8.app.ts: validate WebView hierarchy selectors with accessibility snapshots",
+    "src/categories.ts: define categories once non-empty app groups grow",
+    "src/globalGroups.ts: inspect when adding cross-app global rules",
+    ".github/workflows: revisit if release or branch protection behavior changes"
+  ]
+}
