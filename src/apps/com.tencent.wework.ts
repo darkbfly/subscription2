@@ -10,6 +10,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: '@TextView[text="扫码消费"]',
+          actionDelay: 5000,
         },
       ],
     },
