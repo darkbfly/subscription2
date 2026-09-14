@@ -23,7 +23,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '自动选择线路1',
+      name: '功能类-自动选择线路1',
       activityIds: ['com.JMComic3.app.MainActivity'],
       rules: [
         {

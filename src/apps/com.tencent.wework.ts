@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '加班餐扫码消费',
+      name: '功能类-加班餐扫码消费',
       rules: [
         {
           matches: '@TextView[text="扫码消费"]',

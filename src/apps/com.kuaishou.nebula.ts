@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '自动签到',
+      name: '功能类-自动签到',
       activityIds: ['com.yxcorp.gifshow.HomeActivity'],
       rules: [
         {
